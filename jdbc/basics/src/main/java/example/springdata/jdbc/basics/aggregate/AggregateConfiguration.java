@@ -50,6 +50,9 @@ public class AggregateConfiguration extends AbstractJdbcConfiguration {
 	@Bean
 	public BeforeSaveCallback<LegoSet> idSetting() {
 		return (LegoSet legoSet, MutableAggregateChange<LegoSet> aggregateChange) -> {
+			if(legoSet.getId() != null) {
+				return legoSet;
+			}
 			int id = this.id.incrementAndGet();
 			return legoSet.toBuilder()
 					.id(id)
