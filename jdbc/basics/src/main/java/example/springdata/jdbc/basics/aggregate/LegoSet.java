@@ -15,10 +15,7 @@
  */
 package example.springdata.jdbc.basics.aggregate;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.With;
+import lombok.*;
 import lombok.With;
 
 import java.time.Period;
@@ -41,9 +38,10 @@ import org.springframework.data.relational.core.mapping.MappedCollection;
 @Data
 @AccessType(Type.PROPERTY)
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
+@Builder(toBuilder = true)
 public class LegoSet {
 
-	private @Id int id;
+	private @Id Integer id;
 	private String name;
 	private @Transient Period minimumAge, maximumAge;
 

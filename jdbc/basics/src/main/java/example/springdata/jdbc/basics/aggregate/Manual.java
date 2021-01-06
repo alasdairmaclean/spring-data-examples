@@ -15,6 +15,8 @@
  */
 package example.springdata.jdbc.basics.aggregate;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import org.springframework.data.annotation.Id;
@@ -28,6 +30,8 @@ import org.springframework.data.relational.core.mapping.Table;
  */
 @Data
 @Table("HANDBUCH")
+@AllArgsConstructor
+@Builder(toBuilder = true)
 public class Manual {
 
 	@Column("HANDBUCH_ID")
